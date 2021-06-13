@@ -48,7 +48,6 @@ public class menu_horizontal_scroll extends  AppCompatActivity {
                 });
             }else if(i==2){
                 b.setBackgroundResource(R.drawable.difficulity);
-                b.setBackgroundResource(R.drawable.resttime);
                 b.setOnClickListener(new ImageButton.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -61,6 +60,16 @@ public class menu_horizontal_scroll extends  AppCompatActivity {
                 });
             }else if(i==3){
                 b.setBackgroundResource(R.drawable.password);
+                b.setOnClickListener(new ImageButton.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 寫要做的事...
+                        Log.d("","click");
+                        Intent intent = new Intent();
+                        intent.setClass(menu_horizontal_scroll.this ,setting_passwd.class);
+                        startActivity(intent);
+                    }
+                });
             }else{
                 b.setBackgroundResource(R.drawable.choose_mouse);
             }
