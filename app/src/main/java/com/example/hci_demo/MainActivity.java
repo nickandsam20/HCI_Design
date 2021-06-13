@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static setting_state app_state;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton startBtn1=findViewById(R.id.startBtn1);
         ImageButton startBtn2=findViewById(R.id.startBtn2);
 
-
+        app_state=new setting_state();
 
         startBtn1.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
