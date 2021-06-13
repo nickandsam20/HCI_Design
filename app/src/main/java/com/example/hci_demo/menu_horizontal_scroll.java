@@ -4,8 +4,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
@@ -34,6 +36,16 @@ public class menu_horizontal_scroll extends  AppCompatActivity {
                 b.setBackgroundResource(R.drawable.on);
             }else if(i==1){
                 b.setBackgroundResource(R.drawable.resttime);
+                b.setOnClickListener(new ImageButton.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 寫要做的事...
+                        Log.d("","click");
+                        Intent intent = new Intent();
+                        intent.setClass(menu_horizontal_scroll.this ,setting_resttime.class);
+                        startActivity(intent);
+                    }
+                });
             }else if(i==2){
                 b.setBackgroundResource(R.drawable.difficulity);
             }else if(i==3){
