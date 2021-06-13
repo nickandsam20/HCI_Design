@@ -1,4 +1,4 @@
-package com.example.hci_demo;
+package com.example.hci_demo.fragment;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hci_demo.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link page3#newInstance} factory method to
+ * Use the {@link menu_page_password#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class page3 extends Fragment {
+public class menu_page_password extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class page3 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public page3() {
+    public menu_page_password() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class page3 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment page3.
+     * @return A new instance of fragment menu_page_password.
      */
     // TODO: Rename and change types and number of parameters
-    public static page3 newInstance(String param1, String param2) {
-        page3 fragment = new page3();
+    public static menu_page_password newInstance(String param1, String param2) {
+        menu_page_password fragment = new menu_page_password();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class page3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page3, container, false);
+        return inflater.inflate(R.layout.fragment_menu_page_password, container, false);
     }
 }

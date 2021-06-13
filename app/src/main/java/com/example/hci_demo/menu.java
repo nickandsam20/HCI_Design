@@ -11,8 +11,8 @@ public class menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        ViewPager2 viewPager2=findViewById(R.id.view_pager);
-        ViewPagerAdapter adapter= new ViewPagerAdapter(this);
-        viewPager2.setAdapter(adapter);
+        //ViewPager2 viewPager2=findViewById(R.id.view_pager);
+        //ViewPagerAdapter adapter= new ViewPagerAdapter(this);
+        //viewPager2.setAdapter(adapter);
     }
 }
