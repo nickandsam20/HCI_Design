@@ -72,6 +72,17 @@ public class menu_horizontal_scroll extends  AppCompatActivity {
                 });
             }else{
                 b.setBackgroundResource(R.drawable.choose_mouse);
+                b.setOnClickListener(new ImageButton.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 寫要做的事...
+                        Log.d("","click");
+//                        Intent intent = new Intent();
+//                        intent.setClass(menu_horizontal_scroll.this ,setting_mouse_choose.class);
+                        Intent intent=new Intent(menu_horizontal_scroll.this,setting_mouse_choose.class);
+                        startActivity(intent);
+                    }
+                });
             }
             l1.addView(b);
         }

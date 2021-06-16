@@ -13,6 +13,7 @@
         <activity android:name=".setting_passwd" />
         <activity android:name=".setting_difficulity" />
         <activity android:name=".setting_resttime" />
+        <activity android:name=".setting_mouse_choose" />
         <activity android:name=".menu_horizontal_scroll" />
         <activity android:name=".menu" />
         <activity android:name=".MainActivity">
