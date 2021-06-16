@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hci_demo">
-        <activity android:name=".setting_backup_passwd"></activity>
+        <activity android:name=".setting_gesture_passwd"></activity>
+        <activity android:name=".setting_backup_passwd" />
         <activity android:name=".setting_passwd" />
         <activity android:name=".setting_difficulity" />
         <activity android:name=".setting_resttime" />

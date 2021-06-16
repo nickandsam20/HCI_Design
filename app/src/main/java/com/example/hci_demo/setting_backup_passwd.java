@@ -28,11 +28,7 @@ public class setting_backup_passwd extends AppCompatActivity {
         if(!app_state.hasBackup){
             info.setText("你還沒設定過備用密碼，請先設定備用密碼!");
             mode=0;
-        }else if(mode==2){
-            mode=1;
-            info.setText("你已經設定過備用密碼了，若要修改備用密碼，請先輸入原密碼");
-            mode=1;
-        } else{
+        }else{
             info.setText("你已經設定過備用密碼了，若要修改備用密碼，請先輸入原密碼");
             mode=1;
         }

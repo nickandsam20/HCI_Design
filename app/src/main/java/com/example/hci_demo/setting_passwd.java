@@ -16,6 +16,7 @@ public class setting_passwd extends AppCompatActivity {
         setContentView(R.layout.activity_setting_passwd);
 
         ImageButton backupBtn=findViewById(R.id.backupPasswdBtn);
+        ImageButton gestureBtn=findViewById(R.id.gesturePasswdBtn);
         backupBtn.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,6 +24,17 @@ public class setting_passwd extends AppCompatActivity {
                 Log.d("","click");
                 Intent intent = new Intent();
                 intent.setClass(setting_passwd.this ,setting_backup_passwd.class);
+                startActivity(intent);
+            }
+        });
+
+        gestureBtn.setOnClickListener(new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 寫要做的事...
+                Log.d("","click");
+                Intent intent = new Intent();
+                intent.setClass(setting_passwd.this ,setting_gesture_passwd.class);
                 startActivity(intent);
             }
         });

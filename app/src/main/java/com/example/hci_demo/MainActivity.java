@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Python.start(new AndroidPlatform(MainActivity.this));
+//        Python.start(new AndroidPlatform(MainActivity.this));
         ImageButton startBtn1=findViewById(R.id.startBtn1);
         ImageButton startBtn2=findViewById(R.id.startBtn2);
 
