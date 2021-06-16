@@ -30,7 +30,7 @@ public class setting_mouse_choose extends AppCompatActivity {
                 // 寫要做的事...
                 Log.d("","click");
                 Intent intent = new Intent();
-                intent.setClass(setting_mouse_choose.this , menu_horizontal_scroll.class);
+                intent.setClass(setting_mouse_choose.this , new_menu.class);
                 startActivity(intent);
             }
         });

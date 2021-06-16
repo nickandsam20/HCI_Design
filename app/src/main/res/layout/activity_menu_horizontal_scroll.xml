@@ -15,17 +15,16 @@ tools:context=".menu_horizontal_scroll" >
         <HorizontalScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="564dp"
             android:layout_weight="0.8"
-            android:fadingEdgeLength="0dp" >
+            android:fadingEdgeLength="0dp">
 
             <LinearLayout
                 android:id="@+id/horizontalbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:baselineAligned="true"
-                android:orientation="horizontal" >
-            </LinearLayout>
+                android:orientation="horizontal"></LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
 </RelativeLayout>

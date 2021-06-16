@@ -45,4 +45,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.warkiz.widget:indicatorseekbar:2.1.2'
     implementation 'com.itsxtt:patternlockview:0.1.0'
+    implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
 }

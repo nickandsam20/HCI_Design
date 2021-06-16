@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 // 寫要做的事...
                 Log.d("","click");
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this ,menu_horizontal_scroll.class);
+                intent.setClass(MainActivity.this ,new_menu.class);
+//                intent.setClass(MainActivity.this ,menu_horizontal_scroll.class);
                 startActivity(intent);
             }
         });
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 // 寫要做的事...
                 Log.d("","click");
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this , menu_horizontal_scroll.class);
+                intent.setClass(MainActivity.this , new_menu.class);
+//                intent.setClass(MainActivity.this , menu_horizontal_scroll.class);
                 startActivity(intent);
             }
         });

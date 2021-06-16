@@ -4,7 +4,7 @@ MainActivity(on/off開關頁面)---
                               |
                               |
                               |
-                              menu_horizontal_scroll(水平滑動選單頁面，這頁會顯示休息時間/難易度等按鈕)
+                              new_menu(水平滑動選單頁面，這頁會顯示休息時間/難易度等按鈕)
                               |                                                        |                                            |
                               |                                                        |                                            |
                               setting_resttime:設定休息時間介面                         setting_difficulity:設定難易度介面           剩下的還沒做完

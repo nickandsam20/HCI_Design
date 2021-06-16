@@ -24,7 +24,7 @@ public class setting_difficulity extends AppCompatActivity {
                 // 寫要做的事...
                 Log.d("","click");
                 Intent intent = new Intent();
-                intent.setClass(setting_difficulity.this , menu_horizontal_scroll.class);
+                intent.setClass(setting_difficulity.this , new_menu.class);
                 startActivity(intent);
             }
         });
