@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
+
 public class MainActivity extends AppCompatActivity {
 
     public static setting_state app_state;
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Python.start(new AndroidPlatform(MainActivity.this));
         ImageButton startBtn1=findViewById(R.id.startBtn1);
         ImageButton startBtn2=findViewById(R.id.startBtn2);
 

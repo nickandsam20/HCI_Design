@@ -11,11 +11,18 @@
 <!--</shape>-->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
 
-    <item android:drawable="@drawable/setting_time_togglebar_vert"
-        >
+
+        <bitmap
+            android:src="@drawable/long_bar"
+            android:gravity="center" />
 
     </item>
+<!--    <item android:drawable="@drawable/setting_time_togglebar_vert"-->
+<!--        >-->
+
+<!--    </item>-->
 <!--        <rotate xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--            android:fromDegrees="90"-->
 <!--            android:toDegrees="0"-->
