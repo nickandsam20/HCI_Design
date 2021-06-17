@@ -65,11 +65,11 @@ public class setting_mouse_choose extends AppCompatActivity {
                 StringBuilder result = new StringBuilder();
                 for(int i=0;i<16;i++){
                     app_state.random_mouse[i]=TBArray[i].isChecked();
-                    result.append("\nTB").append(i).append(app_state.random_mouse[i]);
+//                    result.append("\nTB").append(i).append(app_state.random_mouse[i]);
                 }
 
                 //Displaying the message in toast
-                Toast.makeText(getApplicationContext(), result.toString(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), result.toString(), Toast.LENGTH_LONG).show();
             }
 
         });

@@ -13,22 +13,24 @@
         android:background="#00000000"
         app:layout_constraintBottom_toTopOf="@+id/backupPasswdBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.9"
         app:srcCompat="@drawable/img_passwd" />
 
     <ImageButton
         android:id="@+id/backupPasswdBtn"
         android:layout_width="210dp"
         android:layout_height="105dp"
+        android:layout_marginBottom="252dp"
         android:background="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPasswdBtn"
         app:srcCompat="@drawable/backup_passwd" />
 
@@ -44,4 +46,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread"
         app:srcCompat="@drawable/passwd_setting" />
+
+    <ImageButton
+        android:id="@+id/resttime_returnBtnPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896"
+        app:srcCompat="@drawable/return_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

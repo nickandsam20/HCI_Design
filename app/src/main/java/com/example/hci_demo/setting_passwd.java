@@ -38,5 +38,16 @@ public class setting_passwd extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageButton returnBtn=findViewById(R.id.resttime_returnBtnPW);
+        returnBtn.setOnClickListener(new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 寫要做的事...
+                Log.d("","click");
+                Intent intent = new Intent();
+                intent.setClass(setting_passwd.this , new_menu.class);
+                startActivity(intent);
+            }
+        });
     }
 }
