@@ -149,15 +149,20 @@ public class camara2 extends AppCompatActivity {
         v[8]=findViewById(R.id.pos8);
         if(app_state.mode==0){
             //easy mode
-            passwdImgNum[0]=0;
-            passwdImgNum[1]=0;
-            passwdImgNum[2]=1;
-            passwdImgNum[3]=2;
-            passwdImgNum[4]=2;
-            passwdImgNum[5]=3;
-            passwdImgNum[6]=4;
-            passwdImgNum[7]=4;
-            passwdImgNum[8]=5;
+            Random rand = new Random(); //instance of random class
+            int upperbound = 6;
+            //generate random values from 0-24
+            int int_random = rand.nextInt(upperbound);
+            passwdImgNum[4]=int_random;
+
+            passwdImgNum[0]=-1;
+            passwdImgNum[1]=-1;
+            passwdImgNum[2]=-1;
+            passwdImgNum[3]=-1;
+            passwdImgNum[5]=-1;
+            passwdImgNum[6]=-1;
+            passwdImgNum[7]=-1;
+            passwdImgNum[8]=-1;
         }else{
             //hard mode
             create_passwdimg();

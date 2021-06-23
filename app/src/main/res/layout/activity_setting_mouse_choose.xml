@@ -44,14 +44,14 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="290dp">
+            android:layout_height="235dp">
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:paddingLeft="60dp"
-                android:paddingRight="60dp"
-                android:gravity="center">
+                android:paddingRight="60dp">
 
                 <ToggleButton
                     android:id="@+id/toggleButton0"
@@ -77,9 +77,9 @@
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:paddingLeft="60dp"
-                android:paddingRight="60dp"
-                android:gravity="center">
+                android:paddingRight="60dp">
 
                 <ToggleButton
                     android:id="@+id/toggleButton2"
@@ -104,9 +104,9 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:paddingLeft="60dp"
-                android:paddingRight="60dp"
-                android:gravity="center">
+                android:paddingRight="60dp">
 
                 <ToggleButton
                     android:id="@+id/toggleButton4"
@@ -127,7 +127,6 @@
                     android:textOn="V" />
 
             </TableRow>
-
 
 
         </TableLayout>
