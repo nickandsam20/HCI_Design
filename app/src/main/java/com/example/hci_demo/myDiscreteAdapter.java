@@ -48,7 +48,7 @@ public class myDiscreteAdapter extends RecyclerView.Adapter<myDiscreteAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return 5;
+        return source_list.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

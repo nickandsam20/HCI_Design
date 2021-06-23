@@ -47,26 +47,46 @@
             android:layout_height="290dp">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="60dp"
-                android:paddingRight="60dp">
+                android:paddingRight="60dp"
+                android:gravity="center">
+
+                <ToggleButton
+                    android:id="@+id/toggleButton0"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="50dp"
+                    android:background="@drawable/mouse0"
+                    android:textOff=" "
+                    android:textOn="V" />
 
                 <ToggleButton
                     android:id="@+id/toggleButton1"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/mouse01"
+                    android:background="@drawable/mouse1"
                     android:textOff=" "
                     android:textOn="V" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:gravity="center">
 
                 <ToggleButton
                     android:id="@+id/toggleButton2"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/mouse02"
+                    android:background="@drawable/mouse2"
                     android:textOff=" "
                     android:textOn="V" />
 
@@ -75,149 +95,40 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/mouse03"
+                    android:background="@drawable/mouse3"
                     android:textOff=" "
                     android:textOn="V" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:gravity="center">
 
                 <ToggleButton
                     android:id="@+id/toggleButton4"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/mouse04"
+                    android:background="@drawable/mouse4"
                     android:textOff=" "
                     android:textOn="V" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="60dp"
-                android:paddingRight="60dp">
 
                 <ToggleButton
                     android:id="@+id/toggleButton5"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/mouse05"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton6"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse06"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton7"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse07"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton8"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse08"
-                    android:textOff=" "
-                    android:textOn="V" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="60dp"
-                android:paddingRight="60dp">
-
-                <ToggleButton
-                    android:id="@+id/toggleButton9"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse09"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton10"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse10"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton11"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse11"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton12"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse12"
+                    android:background="@drawable/mouse5"
                     android:textOff=" "
                     android:textOn="V" />
 
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="60dp"
-                android:paddingRight="60dp">
 
-                <ToggleButton
-                    android:id="@+id/toggleButton13"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse13"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton14"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse14"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton15"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse15"
-                    android:textOff=" "
-                    android:textOn="V" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton16"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/mouse16"
-                    android:textOff=" "
-                    android:textOn="V" />
-            </TableRow>
 
         </TableLayout>
 
