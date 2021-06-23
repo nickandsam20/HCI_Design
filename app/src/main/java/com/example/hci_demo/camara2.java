@@ -29,6 +29,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -54,6 +55,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class camara2 extends AppCompatActivity {
@@ -61,10 +63,10 @@ public class camara2 extends AppCompatActivity {
 
 
 
-
+    private setting_state app_state=MainActivity.app_state;
     private Button btnCapture;
     private TextureView textureView;
-
+    private int[] passwdImgNum=new int[9];
     //Check state orientation of output image
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     static{
@@ -88,6 +90,14 @@ public class camara2 extends AppCompatActivity {
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
 
+    private void set_view_img(ImageView v,int n){
+        if(n==0)v.setImageResource(R.drawable.mouse0);
+        else if(n==1)v.setImageResource(R.drawable.mouse1);
+        else if(n==2)v.setImageResource(R.drawable.mouse2);
+        else if(n==3)v.setImageResource(R.drawable.mouse3);
+        else if(n==4)v.setImageResource(R.drawable.mouse4);
+        else if(n==5)v.setImageResource(R.drawable.mouse5);
+    }
     CameraDevice.StateCallback stateCallback = new CameraDevice.StateCallback() {
         @Override
         public void onOpened(@NonNull CameraDevice camera) {
@@ -107,7 +117,15 @@ public class camara2 extends AppCompatActivity {
         }
     };
 
-
+    private void create_passwdimg(){
+        for(int i=0;i<9;i++){
+            Random rand = new Random(); //instance of random class
+            int upperbound = 6;
+            //generate random values from 0-24
+            int int_random = rand.nextInt(upperbound);
+            passwdImgNum[i]=int_random;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,23 +134,47 @@ public class camara2 extends AppCompatActivity {
         textureView = (TextureView)findViewById(R.id.textureView);
         //From Java 1.4 , you can use keyword 'assert' to check expression true or false
 //        assert textureView != null;
-        if(textureView==null) Log.d("","textview null");
-        Log.d("","updated!!!!!!!");
-        textureView.setSurfaceTextureListener(textureListener);
-        btnCapture = (Button)findViewById(R.id.btnCapture);
-        btnCapture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                takePicture();
-            }
-        });
-        Button httpbtn=findViewById(R.id.httptest);
-        httpbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+        textureView.setSurfaceTextureListener(textureListener);
+
+        ImageView []v=new ImageView[9];
+        v[0]=findViewById(R.id.pos0);
+        v[1]=findViewById(R.id.pos1);
+        v[2]=findViewById(R.id.pos2);
+        v[3]=findViewById(R.id.pos3);
+        v[4]=findViewById(R.id.pos4);
+        v[5]=findViewById(R.id.pos5);
+        v[6]=findViewById(R.id.pos6);
+        v[7]=findViewById(R.id.pos7);
+        v[8]=findViewById(R.id.pos8);
+        if(app_state.mode==0){
+            //easy mode
+            passwdImgNum[0]=0;
+            passwdImgNum[1]=0;
+            passwdImgNum[2]=1;
+            passwdImgNum[3]=2;
+            passwdImgNum[4]=2;
+            passwdImgNum[5]=3;
+            passwdImgNum[6]=4;
+            passwdImgNum[7]=4;
+            passwdImgNum[8]=5;
+        }else{
+            //hard mode
+            create_passwdimg();
+        }
+
+        for(int i=0;i<9;i++){
+            set_view_img(v[i],passwdImgNum[i]);
+        }
+
+//        btnCapture = (Button)findViewById(R.id.btnCapture);
+//        btnCapture.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                takePicture();
+//            }
+//        });
+
     }
 
     private void takePicture() {
