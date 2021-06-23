@@ -76,6 +76,16 @@ public class new_menu extends AppCompatActivity {
                 startActivity(intent);
             }
         }));
+        sourceList.add(new menu_item_source(R.drawable.test,new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 寫要做的事...
+                Log.d("","click");
+                Intent intent = new Intent();
+                intent.setClass(new_menu.this ,camara2.class);
+                startActivity(intent);
+            }
+        }));
 
         scrollView.setAdapter(new myDiscreteAdapter(sourceList));
     }

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 // 寫要做的事...
 
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this ,camara2.class);
+                intent.setClass(MainActivity.this ,new_menu.class);
 //                intent.setClass(MainActivity.this ,new_menu.class);
                 startActivity(intent);
             }
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 // 寫要做的事...
 
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this , camara2.class);
+                intent.setClass(MainActivity.this , new_menu.class);
 //                intent.setClass(MainActivity.this ,new_menu.class);
                 startActivity(intent);
             }
