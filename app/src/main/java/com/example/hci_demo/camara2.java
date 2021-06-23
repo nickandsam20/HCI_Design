@@ -2,7 +2,11 @@ package com.example.hci_demo;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -30,9 +34,11 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -67,6 +73,9 @@ public class camara2 extends AppCompatActivity {
     private Button btnCapture;
     private TextureView textureView;
     private int[] passwdImgNum=new int[9];
+    ImageView []iv=new ImageView[9];
+
+    int curpos;
     //Check state orientation of output image
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     static{
@@ -120,33 +129,63 @@ public class camara2 extends AppCompatActivity {
     private void create_passwdimg(){
         for(int i=0;i<9;i++){
             Random rand = new Random(); //instance of random class
-            int upperbound = 6;
+            int upperbound = 4;
             //generate random values from 0-24
-            int int_random = rand.nextInt(upperbound);
+            int int_random = rand.nextInt(upperbound)+2;
             passwdImgNum[i]=int_random;
         }
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camara2);
+    private void check_passwd(int n){
+        Log.d("checking passwd","ing");
 
-        textureView = (TextureView)findViewById(R.id.textureView);
-        //From Java 1.4 , you can use keyword 'assert' to check expression true or false
-//        assert textureView != null;
+        if(app_state.mode==0){
+            //easy mode
+            Log.d("check","easymode");
+            if(passwdImgNum[4]==n){
+                Log.d("easymode","right");
+                //iv[4].setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                curpos++;
+            }else{
+                Log.d("easymode","wrong");
+            }
+        }else{
+            Log.d("check","hardmode");
+            if(passwdImgNum[app_state.gesture_passwd.get(curpos)]==n){
 
-        textureView.setSurfaceTextureListener(textureListener);
+                //iv[app_state.gesture_passwd.get(curpos)].setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                iv[app_state.gesture_passwd.get(curpos)].setImageDrawable(null);
+                curpos++;
+                Log.d("hardmode","right");
+            }else{
+                Log.d("hardmode","wrong");
+            }
+        }
+        if((app_state.mode==1 && curpos>=app_state.gesture_passwd.size()) || (app_state.mode==0 && curpos==1)){
+            //完成解鎖
+            new AlertDialog.Builder(camara2.this)
+                    .setTitle("完成解鎖!")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent();
+                            intent.setClass(camara2.this ,new_menu.class);
+                            startActivity(intent);
+                        }
+                    }).show();
+        }
 
-        ImageView []v=new ImageView[9];
-        v[0]=findViewById(R.id.pos0);
-        v[1]=findViewById(R.id.pos1);
-        v[2]=findViewById(R.id.pos2);
-        v[3]=findViewById(R.id.pos3);
-        v[4]=findViewById(R.id.pos4);
-        v[5]=findViewById(R.id.pos5);
-        v[6]=findViewById(R.id.pos6);
-        v[7]=findViewById(R.id.pos7);
-        v[8]=findViewById(R.id.pos8);
+
+    }
+    private void setup_passwd_and_img(){
+        curpos=0;
+
+        iv[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("texture","onclick");
+                takePicture();
+            }
+        });
         if(app_state.mode==0){
             //easy mode
             Random rand = new Random(); //instance of random class
@@ -169,8 +208,74 @@ public class camara2 extends AppCompatActivity {
         }
 
         for(int i=0;i<9;i++){
-            set_view_img(v[i],passwdImgNum[i]);
+            set_view_img(iv[i],passwdImgNum[i]);
         }
+
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_camara2);
+        curpos=0;
+        iv[0]=findViewById(R.id.pos0);
+        iv[1]=findViewById(R.id.pos1);
+        iv[2]=findViewById(R.id.pos2);
+        iv[3]=findViewById(R.id.pos3);
+        iv[4]=findViewById(R.id.pos4);
+        iv[5]=findViewById(R.id.pos5);
+        iv[6]=findViewById(R.id.pos6);
+        iv[7]=findViewById(R.id.pos7);
+        iv[8]=findViewById(R.id.pos8);
+
+        textureView = (TextureView)findViewById(R.id.textureView);
+        //From Java 1.4 , you can use keyword 'assert' to check expression true or false
+//        assert textureView != null;
+
+
+
+        if(app_state.mode==1){
+            if(app_state.gesture_passwd.size()==0){
+                new AlertDialog.Builder(camara2.this)
+                        .setTitle("請先設定密碼")
+                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent();
+                                intent.setClass(camara2.this ,setting_gesture_passwd.class);
+                                startActivity(intent);
+                            }
+                        }).show();
+                return;
+            }
+
+        }
+
+        textureView.setSurfaceTextureListener(textureListener);
+        for(int i=0;i<9;i++){
+            iv[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("iv","onclick");
+                    takePicture();
+                }
+            });
+        }
+        textureView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("texture","onclick");
+                takePicture();
+            }
+        });
+        iv[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("texture","onclick");
+                takePicture();
+            }
+        });
+
+        setup_passwd_and_img();
 
 //        btnCapture = (Button)findViewById(R.id.btnCapture);
 //        btnCapture.setOnClickListener(new View.OnClickListener() {
@@ -389,6 +494,7 @@ public class camara2 extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         startBackgroundThread();
+        setup_passwd_and_img();
         if(textureView.isAvailable())
             openCamera();
         else
@@ -422,7 +528,7 @@ public class camara2 extends AppCompatActivity {
         URL url = null;
         int result=-1;
         try {
-            Log.d("string222",stringimg);
+
 
             url = new URL("http://140.114.252.108:5000/uploader");
             Log.d("url",url.toString());
@@ -484,7 +590,8 @@ public class camara2 extends AppCompatActivity {
                 br.close();
                 JSONObject rjson = new JSONObject(buffer.toString());
                 result=rjson.getInt("result");
-                Log.d("zxy", "rjson="+rjson);//rjson={"json":true}
+                check_passwd(result);
+                Log.d("zxy66776", "rjson="+rjson);//rjson={"json":true}
 //                boolean result = rjson.getBoolean("json");//從rjson物件中得到key值為"json"的資料，這裡服務端返回的是一個boolean型別的資料
 
             }else{
