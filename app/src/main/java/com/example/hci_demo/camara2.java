@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 
 import android.os.Bundle;
+import android.system.ErrnoException;
 import android.util.Base64;
 import android.util.Log;
 import android.util.Size;
@@ -106,6 +107,7 @@ public class camara2 extends AppCompatActivity {
         else if(n==3)v.setImageResource(R.drawable.mouse3);
         else if(n==4)v.setImageResource(R.drawable.mouse4);
         else if(n==5)v.setImageResource(R.drawable.mouse5);
+        v.invalidate();
     }
     CameraDevice.StateCallback stateCallback = new CameraDevice.StateCallback() {
         @Override
@@ -129,15 +131,16 @@ public class camara2 extends AppCompatActivity {
     private void create_passwdimg(){
         for(int i=0;i<9;i++){
             Random rand = new Random(); //instance of random class
-            int upperbound = 4;
+            int upperbound = 3;
             //generate random values from 0-24
-            int int_random = rand.nextInt(upperbound)+2;
+            int int_random = rand.nextInt(upperbound)+3;
             passwdImgNum[i]=int_random;
+            Log.d("ans=",Integer.toString(passwdImgNum[i]));
         }
     }
     private void check_passwd(int n){
         Log.d("checking passwd","ing");
-
+        Log.d("cur=",Integer.toString(curpos));
         if(app_state.mode==0){
             //easy mode
             Log.d("check","easymode");
@@ -147,17 +150,25 @@ public class camara2 extends AppCompatActivity {
                 curpos++;
             }else{
                 Log.d("easymode","wrong");
+                Log.d("right answer",Integer.toString(passwdImgNum[4]));
+                Toast.makeText(getApplicationContext(), "錯誤", Toast.LENGTH_SHORT).show();
             }
+
         }else{
             Log.d("check","hardmode");
             if(passwdImgNum[app_state.gesture_passwd.get(curpos)]==n){
 
                 //iv[app_state.gesture_passwd.get(curpos)].setBackgroundTintList(ColorStateList.valueOf(Color.RED));
-                iv[app_state.gesture_passwd.get(curpos)].setImageDrawable(null);
                 curpos++;
-                Log.d("hardmode","right");
+                iv[app_state.gesture_passwd.get(curpos-1)].setImageDrawable(null);
+                iv[app_state.gesture_passwd.get(curpos-1)].invalidate();
+
+                Log.d("hardmode","right!");
+                Toast.makeText(getApplicationContext(), "正確", Toast.LENGTH_SHORT).show();
             }else{
                 Log.d("hardmode","wrong");
+                Log.d("Right answer",Integer.toString(passwdImgNum[app_state.gesture_passwd.get(curpos)]));
+                Toast.makeText(getApplicationContext(), "錯誤", Toast.LENGTH_SHORT).show();
             }
         }
         if((app_state.mode==1 && curpos>=app_state.gesture_passwd.size()) || (app_state.mode==0 && curpos==1)){
@@ -189,9 +200,9 @@ public class camara2 extends AppCompatActivity {
         if(app_state.mode==0){
             //easy mode
             Random rand = new Random(); //instance of random class
-            int upperbound = 6;
+            int upperbound = 3;
             //generate random values from 0-24
-            int int_random = rand.nextInt(upperbound);
+            int int_random = rand.nextInt(upperbound)+3;
             passwdImgNum[4]=int_random;
 
             passwdImgNum[0]=-1;
@@ -204,7 +215,16 @@ public class camara2 extends AppCompatActivity {
             passwdImgNum[8]=-1;
         }else{
             //hard mode
-            create_passwdimg();
+            //create_passwdimg();
+            passwdImgNum[0]=3;
+            passwdImgNum[1]=4;
+            passwdImgNum[2]=4;
+            passwdImgNum[3]=5;
+            passwdImgNum[4]=3;
+            passwdImgNum[5]=5;
+            passwdImgNum[6]=5;
+            passwdImgNum[7]=4;
+            passwdImgNum[8]=5;
         }
 
         for(int i=0;i<9;i++){
@@ -494,7 +514,7 @@ public class camara2 extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         startBackgroundThread();
-        setup_passwd_and_img();
+        //setup_passwd_and_img();
         if(textureView.isAvailable())
             openCamera();
         else
