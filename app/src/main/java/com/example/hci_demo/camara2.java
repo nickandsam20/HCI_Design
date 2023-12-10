@@ -251,7 +251,7 @@ public class camara2 extends AppCompatActivity {
         //From Java 1.4 , you can use keyword 'assert' to check expression true or false
 //        assert textureView != null;
 
-
+        Log.i("app_state",String.valueOf(app_state.mode));
 
         if(app_state.mode==1){
             if(app_state.gesture_passwd.size()==0){
@@ -308,8 +308,12 @@ public class camara2 extends AppCompatActivity {
     }
 
     private void takePicture() {
-        if(cameraDevice == null)
+        if(cameraDevice == null){
+            Log.i("mydebug","camera device is null");
             return;
+        }
+            
+            
         CameraManager manager = (CameraManager)getSystemService(Context.CAMERA_SERVICE);
         try{
             CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraDevice.getId());
@@ -550,7 +554,8 @@ public class camara2 extends AppCompatActivity {
         try {
 
 
-            url = new URL("http://140.114.252.108:5000/uploader");
+//            url = new URL("http://140.114.252.108:5000/uploader");
+            url = new URL("http://10.0.2.2:5000/uploader");
             Log.d("url",url.toString());
             urlConnection = (HttpURLConnection) url.openConnection();//開啟http連線
             urlConnection.setConnectTimeout(3000);//連線的超時時間
@@ -618,7 +623,7 @@ public class camara2 extends AppCompatActivity {
                 Log.d("",Integer.toString(urlConnection.getResponseCode()));
             }
         } catch (Exception e) {
-
+            Log.d("mydebug", String.valueOf(e));
         }finally{
             urlConnection.disconnect();//使用完關閉TCP連線，釋放資源
             return result;

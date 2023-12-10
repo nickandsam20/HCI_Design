@@ -16,7 +16,7 @@ import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class new_menu extends AppCompatActivity {
+public class    new_menu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

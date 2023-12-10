@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 寫要做的事...
+                Log.i("mydebug","22222");
 
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this ,new_menu.class);
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 寫要做的事...
-
+                Log.i("mydebug","@@@22222");
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this , new_menu.class);
 //                intent.setClass(MainActivity.this ,new_menu.class);
