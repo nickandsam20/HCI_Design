@@ -338,11 +338,11 @@ public class camara2 extends AppCompatActivity {
             //Capture image with custom size
             int width = 640;
             int height = 480;
-            if(jpegSizes != null && jpegSizes.length > 0)
-            {
-                width = jpegSizes[0].getWidth();
-                height = jpegSizes[0].getHeight();
-            }
+            // if(jpegSizes != null && jpegSizes.length > 0)
+            // {
+            //     width = jpegSizes[0].getWidth();
+            //     height = jpegSizes[0].getHeight();
+            // }
             final ImageReader reader = ImageReader.newInstance(width,height,ImageFormat.JPEG,1);
             List<Surface> outputSurface = new ArrayList<>(2);
             outputSurface.add(reader.getSurface());
@@ -356,8 +356,8 @@ public class camara2 extends AppCompatActivity {
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
 
-            file = new File(Environment.getExternalStorageDirectory()+"/"+UUID.randomUUID().toString()+".jpg");
-            Log.d("mydebug",Environment.getExternalStorageDirectory()+"/"+UUID.randomUUID().toString()+".jpg");
+            file = new File(Environment.getExternalStorageDirectory()+"/Download/"+UUID.randomUUID().toString()+".jpg");
+            Log.d("mydebug",Environment.getExternalStorageDirectory()+"/Download/"+UUID.randomUUID().toString()+".jpg");
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
                 public void onImageAvailable(ImageReader imageReader) {
