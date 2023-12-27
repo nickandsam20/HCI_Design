@@ -199,10 +199,23 @@ public class camara2 extends AppCompatActivity {
         });
         if(app_state.mode==0){
             //easy mode
+            int enableCnt=0;
+            ArrayList<Integer> enableMouseIdx=new ArrayList();
+            for(int i=0;i<6;i++){
+                if(app_state.random_mouse[i]){
+                    enableCnt++;
+                    enableMouseIdx.add(i);
+                }
+            }
             Random rand = new Random(); //instance of random class
             int upperbound = 3;
+            
             //generate random values from 0-24
-            int int_random = rand.nextInt(upperbound)+3;
+            // int int_random = rand.nextInt(upperbound)+3;
+
+            int int_random=rand.nextInt(enableCnt);
+            int_random=enableMouseIdx.get(int_random);
+
             passwdImgNum[4]=int_random;
 
             passwdImgNum[0]=-1;
@@ -344,6 +357,7 @@ public class camara2 extends AppCompatActivity {
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
 
             file = new File(Environment.getExternalStorageDirectory()+"/"+UUID.randomUUID().toString()+".jpg");
+            Log.d("mydebug",Environment.getExternalStorageDirectory()+"/"+UUID.randomUUID().toString()+".jpg");
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
                 public void onImageAvailable(ImageReader imageReader) {
